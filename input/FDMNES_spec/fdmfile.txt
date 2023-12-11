@@ -1,0 +1,9 @@
+! General indata file for FDMNES
+! with indata files examples
+
+ 1
+ ni_xas_inp.txt
+
+
+
+

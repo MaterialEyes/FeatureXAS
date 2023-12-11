@@ -1,0 +1,40 @@
+! Fdmnes indata file
+! Calculation for the Chromium K-edge in Cr CC
+! The energy range is adapted for the calculation of the photoemission spectra 
+! performed in the convolution next step.
+! A complex energy (eimag) is used to broaden a bit the atomic levels.
+! Density keyword provides the output files containing the density of states (cd_sd0.txt).
+
+ Comment
+ Photoemission in Chromium metal.
+
+ Filout
+   out/ni
+
+ Range
+ -30. 0.1  0. 0.2  10. 1. 100. 
+
+ Eimag
+ 0.2
+
+ Green
+ Density
+ Quadrupole
+ Energpho
+ Radius
+   5.0
+ EDGE 
+ K
+
+! Crystal
+!     2.8839 2.8839 2.8839 90. 90. 90.    = a, b, c, alpha, beta, gamma
+! 24  0.0    0.0    0.0           
+! 24  0.5    0.5    0.5    
+ Cif_file
+ NiO.cif
+ Convolution
+ 
+
+ End
+
+

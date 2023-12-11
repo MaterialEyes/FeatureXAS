@@ -1,0 +1,82 @@
+#ppdir = '../'
+#assumes you want to try and run on 8 cores
+para_prefix { srun -n 24}
+control 0
+# dft solver: abi, qe, obf
+dft{ abi }
+
+# Kpt mesh for final states
+#nkpt { 6 6 6 }
+#ngkpt { 6 6 6 }
+# Kpt mesh for the screening
+screen.nkpt { 2 2 2 }
+
+# Total bands for screening
+screen.nbands 100
+#dielectric constant for molecule 4.0-6.0
+diemac 5.0
+# Total bands for final states
+nbands 100
+#edges
+nedges 1
+edges {-28 1 0}
+# SCF mixing
+#mixing { 0.2 }
+
+# Mag. of latt. vec. in Bohr
+acell { 1 1 1 }
+#acell { 15.00  15.00  15.00 } in Angstrom
+
+# Cart comps. of latt. vecs.
+rprim {       4.8691713716    0.0000000000   -2.8112179381
+    1.6230572639    9.1591208020   -2.8112161886
+    0.0000000000    0.0000000000    5.6224341274}
+
+# pseudopotentials
+pp_list{
+08-O.LDA.fhi
+28-Ni.LDA.fhi        
+}
+#
+# Ntypes of atoms
+ntypat 2
+
+# Z num for types
+znucl { 8 28 }
+#opt files
+opf.fill{ 28 ni.fill }
+opf.opts{ 28 ni.opts }
+
+# N atoms in unit cell
+natom 4
+
+# Type of each atom
+typat {2 2 1 1 }
+
+# Relative positions of atoms
+xred {        0.0000000000    0.0000000000    0.0000000000
+    0.5000000000    0.5000000000    0.5000000000
+    0.2499980000    0.2500060000    0.7500020000
+    0.7500020000    0.7499940000    0.2499980000 }
+
+# Kinetic Energy cutoff (in Ry for QE)
+ecut 200
+
+# radius for shell for screening
+#screen.shells{ 4.0 } 
+#was 4.0 changed to 5.0
+#cnbse.rad{ 4.0 }
+
+#Scaling Factor
+#scfac 0.83
+
+# SCF Energy tolerance
+#toldfe 1.1d-8
+
+# SCF wftol
+#tolwfr 1.1d-16
+
+# xmesh
+#CNBSE.xmesh { 5 5 5 }
+#spectral broadening
+cnbse.broaden{ 0.1 }
